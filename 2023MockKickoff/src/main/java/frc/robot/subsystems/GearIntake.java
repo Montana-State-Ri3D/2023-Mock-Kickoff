@@ -26,7 +26,7 @@ public class GearIntake extends SubsystemBase {
 
   public boolean getBeamBreakValue() {
 
-    return beamBreak.get();
+    return !beamBreak.get();
   }
 
   @Override
