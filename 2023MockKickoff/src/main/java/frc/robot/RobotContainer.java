@@ -6,6 +6,7 @@ package frc.robot;
 
 import frc.robot.Constants;
 import frc.robot.commands.IntakeGear;
+import frc.robot.commands.PlaceGear;
 import frc.robot.subsystems.GearIntake;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -46,6 +47,7 @@ public class RobotContainer {
     // driverController.x().onTrue(new InstantCommand(() -> gearIntakeSubsystem.setMotorPower(0.3)));
     // driverController.b().onTrue(new InstantCommand(() -> gearIntakeSubsystem.setMotorPower(0.0)));
     driverController.x().onTrue(new IntakeGear(gearIntakeSubsystem, () -> driverController.b().getAsBoolean()));
+    driverController.a().onTrue(new PlaceGear(gearIntakeSubsystem));
   }
 
   /**
