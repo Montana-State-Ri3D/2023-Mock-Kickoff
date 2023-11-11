@@ -15,5 +15,5 @@ package frc.robot;
 public final class Constants {
   public static final int DriverControllerPort = 0;
   public static final int intakeMotorID = 2;
-  public static final int beanBreakID = 0;
+  public static final int beamBreakID = 0;
 }
