@@ -45,7 +45,7 @@ public class RobotContainer {
   private void configureBindings() {
     // driverController.x().onTrue(new InstantCommand(() -> gearIntakeSubsystem.setMotorPower(0.3)));
     // driverController.b().onTrue(new InstantCommand(() -> gearIntakeSubsystem.setMotorPower(0.0)));
-    driverController.x().onTrue(new IntakeGear(gearIntakeSubsystem));
+    driverController.x().onTrue(new IntakeGear(gearIntakeSubsystem, () -> driverController.b().getAsBoolean()));
   }
 
   /**

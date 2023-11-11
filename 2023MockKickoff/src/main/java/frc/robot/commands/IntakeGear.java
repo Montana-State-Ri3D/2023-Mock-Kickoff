@@ -4,15 +4,21 @@
 
 package frc.robot.commands;
 
+import java.util.function.BooleanSupplier;
+
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.robot.subsystems.GearIntake;
 
 public class IntakeGear extends CommandBase {
 
+  private final BooleanSupplier cancel;
   private final GearIntake subsystem;
+
   /** Creates a new IntakeGear. */
-  public IntakeGear(GearIntake subsystem) {
+  public IntakeGear(GearIntake subsystem, BooleanSupplier cancel) {
+
+    this.cancel = cancel;
     this.subsystem = subsystem;
     addRequirements(subsystem);
     // Use addRequirements() here to declare subsystem dependencies.
@@ -26,7 +32,8 @@ public class IntakeGear extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+  }
 
   // Called once the command ends or is interrupted.
   @Override
@@ -37,6 +44,6 @@ public class IntakeGear extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return subsystem.getBeamBreakValue();
+    return (subsystem.getBeamBreakValue() | cancel.getAsBoolean());
   }
 }
