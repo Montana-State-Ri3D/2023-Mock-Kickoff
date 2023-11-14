@@ -5,6 +5,7 @@
 package frc.robot;
 
 import frc.robot.Constants;
+import frc.robot.commands.FeedForward;
 import frc.robot.commands.IntakeGear;
 import frc.robot.commands.PlaceGear;
 import frc.robot.subsystems.GearIntake;
@@ -24,12 +25,15 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final GearIntake gearIntakeSubsystem = new GearIntake(Constants.intakeMotorID, Constants.beamBreakID);
 
+  private final FeedForward feetForwardCommand = new FeedForward(gearIntakeSubsystem);
+
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandXboxController driverController =
       new CommandXboxController(Constants.DriverControllerPort);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
+    gearIntakeSubsystem.setDefaultCommand(feetForwardCommand);
     // Configure the trigger bindings
     configureBindings();
   }

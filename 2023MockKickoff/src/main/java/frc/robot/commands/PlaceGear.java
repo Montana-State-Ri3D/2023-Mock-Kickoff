@@ -24,9 +24,8 @@ public class PlaceGear extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    subsystem.setMotorPower(-0.3);
+    subsystem.setMotorPower(0.3);
     initTime = System.currentTimeMillis();
-    System.out.println(initTime);
   }
 
   // Called every time the scheduler runs while the command is scheduled.

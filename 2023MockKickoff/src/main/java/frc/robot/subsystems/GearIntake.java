@@ -4,6 +4,8 @@
 
 package frc.robot.subsystems;
 
+import org.littletonrobotics.junction.Logger;
+
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
@@ -31,6 +33,9 @@ public class GearIntake extends SubsystemBase {
 
   @Override
   public void periodic() {
+    Logger logger = Logger.getInstance();
+    logger.recordOutput("Intake/BeamBreakSensors", getBeamBreakValue());
+
     // This method will be called once per scheduler run
   }
 }
